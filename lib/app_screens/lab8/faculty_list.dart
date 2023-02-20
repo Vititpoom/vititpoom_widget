@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vititpoom_widget/app_screens/kku_data_model.dart';
-import 'package:vititpoom_widget/app_screens/kku_detail.dart';
+
+import 'kku_data_model.dart';
+import 'kku_detail.dart';
 
 class FacultyList extends StatefulWidget {
   const FacultyList({super.key});

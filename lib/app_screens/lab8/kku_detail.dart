@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vititpoom_widget/app_screens/kku_data_model.dart';
+
+import 'kku_data_model.dart';
 
 class KKUDetail extends StatelessWidget {
   final KKUDataModel kkuDataModel;

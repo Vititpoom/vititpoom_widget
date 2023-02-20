@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:vititpoom_widget/app_screens/image_asset.dart';
 
-class UsingElevated extends StatelessWidget {
-  const UsingElevated({super.key});
+import 'image_asset.dart';
+
+class Expandedpage extends StatelessWidget {
+  const Expandedpage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,22 +34,6 @@ class UsingElevated extends StatelessWidget {
             ),
             const Padding(padding: EdgeInsets.only(top: 50)),
             const MypicImageAsset(),
-            const Padding(padding: EdgeInsets.only(top: 50)),
-            ElevatedButton(
-              onPressed: (() => showDialog(
-                  context: context,
-                  builder: (BuildContext context) => const AlertDialog(
-                        title: Text('AlertDialog Head'),
-                        content: Text('Subline aleart dialog'),
-                      ))),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-              ),
-              child: const Text(
-                'Button',
-                style: TextStyle(color: Colors.black),
-              ),
-            )
           ],
         ),
       ),
