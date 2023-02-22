@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vititpoom_widget/app_screens/responsive_question.dart';
+import 'package:vititpoom_widget/app_screens/lab10/adding.dart';
+import 'package:vititpoom_widget/app_screens/lab10/color_responses.dart';
 
 void main() {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.red,
         ),
-        home: const ResponsiveQuestion());
+        home: const ColorRespons());
   }
 }
 
