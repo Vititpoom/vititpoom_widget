@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vititpoom_widget/app_screens/lab10/adding.dart';
 import 'package:vititpoom_widget/app_screens/lab10/color_responses.dart';
+import 'package:vititpoom_widget/app_screens/lab11/multi_question.dart';
+import 'package:vititpoom_widget/app_screens/lab11/question_main.dart';
 
 void main() {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +25,23 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.red,
         ),
-        home: const ColorRespons());
+        home: const MultiQuestion()
+
+        // const ColorResponsAndNextPage(
+        //   choices: [
+        //     'Khon Kean University',
+        //     'Chulalongkorn University',
+        //     'Chiang Mai University',
+        //     'Mahidol University'
+        //   ],
+        //   question: 'Where is this picture?',
+        //   title: 'Question 1',
+        //   correct: [false, true, false, false],
+        //   imageURL:
+        //       'https://www.latrobe.edu.au/students/opportunities/exchange/partners/images/asia/Chulalongkorn-University.jpg/preview.jpg',
+        // )
+
+        );
   }
 }
 
