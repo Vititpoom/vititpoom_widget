@@ -41,14 +41,14 @@ class ColorResponsAndNextPage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        QuestionNextPage(
-                            name: choices[0],
-                            color: Colors.orangeAccent,
-                            correct: correct[0]),
-                        QuestionNextPage(
-                            name: choices[1],
-                            color: Colors.pinkAccent,
-                            correct: correct[1])
+                        // QuestionNextPage(
+                        //     name: choices[0],
+                        //     color: Colors.orangeAccent,
+                        //     correct: correct[0]),
+                        // QuestionNextPage(
+                        //     name: choices[1],
+                        //     color: Colors.pinkAccent,
+                        //     correct: correct[1])
                       ],
                     ),
                   ),
@@ -56,14 +56,14 @@ class ColorResponsAndNextPage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        QuestionNextPage(
-                            name: choices[2],
-                            color: Colors.purpleAccent,
-                            correct: correct[2]),
-                        QuestionNextPage(
-                            name: choices[3],
-                            color: Colors.blueAccent,
-                            correct: correct[3])
+                        // QuestionNextPage(
+                        //     name: choices[2],
+                        //     color: Colors.purpleAccent,
+                        //     correct: correct[2]),
+                        // QuestionNextPage(
+                        //     name: choices[3],
+                        //     color: Colors.blueAccent,
+                        //     correct: correct[3])
                       ],
                     ),
                   )

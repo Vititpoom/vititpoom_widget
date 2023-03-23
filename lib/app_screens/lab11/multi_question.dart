@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vititpoom_widget/app_screens/lab11/map_json_to_list.dart';
+import 'package:provider/provider.dart';
+import 'package:vititpoom_widget/app_screens/lab11/question_page.dart';
+import 'package:vititpoom_widget/app_screens/lab12/provider.dart';
 
 class MultiQuestion extends StatefulWidget {
   const MultiQuestion({super.key});
@@ -52,6 +54,10 @@ class _MultiQuestionState extends State<MultiQuestion> {
   };
   @override
   Widget build(BuildContext context) {
-    return MapToList(num: 1, info: questionList);
+    Provider.of<ScoreProvider>(context, listen: false).currentScore = 0;
+    return MapToList(
+      num: 1,
+      info: questionList,
+    );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vititpoom_widget/app_screens/lab10/adding.dart';
-import 'package:vititpoom_widget/app_screens/lab10/color_responses.dart';
-import 'package:vititpoom_widget/app_screens/lab11/multi_question.dart';
-import 'package:vititpoom_widget/app_screens/lab11/question_main.dart';
+import 'package:provider/provider.dart';
+import 'package:vititpoom_widget/app_screens/lab12/first_screen.dart';
+
+import 'app_screens/lab12/provider.dart';
 
 void main() {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -20,28 +20,35 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.red,
-        ),
-        home: const MultiQuestion()
+    return ChangeNotifierProvider<ScoreProvider>(
+      create: (context) => ScoreProvider(),
+      child: Builder(
+        builder: (context) {
+          return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                primarySwatch: Colors.red,
+              ),
+              home: const FirstScreen()
 
-        // const ColorResponsAndNextPage(
-        //   choices: [
-        //     'Khon Kean University',
-        //     'Chulalongkorn University',
-        //     'Chiang Mai University',
-        //     'Mahidol University'
-        //   ],
-        //   question: 'Where is this picture?',
-        //   title: 'Question 1',
-        //   correct: [false, true, false, false],
-        //   imageURL:
-        //       'https://www.latrobe.edu.au/students/opportunities/exchange/partners/images/asia/Chulalongkorn-University.jpg/preview.jpg',
-        // )
+              // const ColorResponsAndNextPage(
+              //   choices: [
+              //     'Khon Kean University',
+              //     'Chulalongkorn University',
+              //     'Chiang Mai University',
+              //     'Mahidol University'
+              //   ],
+              //   question: 'Where is this picture?',
+              //   title: 'Question 1',
+              //   correct: [false, true, false, false],
+              //   imageURL:
+              //       'https://www.latrobe.edu.au/students/opportunities/exchange/partners/images/asia/Chulalongkorn-University.jpg/preview.jpg',
+              // )
 
-        );
+              );
+        },
+      ),
+    );
   }
 }
 

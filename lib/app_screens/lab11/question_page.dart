@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vititpoom_widget/app_screens/lab12/edn_screen.dart';
+import 'package:vititpoom_widget/app_screens/lab12/first_screen.dart';
 
 import 'layout_after_press.dart';
 
@@ -18,6 +20,7 @@ class _MapToListState extends State<MapToList> {
   late List<String> choices;
   late List<bool> correct;
   bool previous = false;
+  bool home = true;
   Widget? nextQuestion;
 
   @override
@@ -34,13 +37,18 @@ class _MapToListState extends State<MapToList> {
     if (widget.num < widget.info.length) {
       nextQuestion = MapToList(num: widget.num + 1, info: widget.info);
     }
+    if (widget.num == 1) {
+      setState(() {
+        home = true;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          automaticallyImplyLeading: true,
+          automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text(title)),
       body: Container(
@@ -66,13 +74,21 @@ class _MapToListState extends State<MapToList> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         QuestionNextPage(
-                            name: choices[0],
-                            color: Colors.orangeAccent,
-                            correct: correct[0]),
+                          name: choices[0],
+                          color: Colors.orangeAccent,
+                          correct: correct[0],
+                          nextQuestion: nextQuestion ?? const EndScreen(),
+
+                          //score: score + 1,
+                        ),
                         QuestionNextPage(
-                            name: choices[1],
-                            color: Colors.pinkAccent,
-                            correct: correct[1])
+                          name: choices[1],
+                          color: Colors.pinkAccent,
+                          correct: correct[1],
+                          nextQuestion: nextQuestion ?? const EndScreen(),
+
+                          //score: score + 1
+                        )
                       ],
                     ),
                   ),
@@ -81,13 +97,21 @@ class _MapToListState extends State<MapToList> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         QuestionNextPage(
-                            name: choices[2],
-                            color: Colors.purpleAccent,
-                            correct: correct[2]),
+                          name: choices[2],
+                          color: Colors.purpleAccent,
+                          correct: correct[2],
+                          nextQuestion: nextQuestion ?? const EndScreen(),
+
+                          //score: score + 1
+                        ),
                         QuestionNextPage(
-                            name: choices[3],
-                            color: Colors.blueAccent,
-                            correct: correct[3]),
+                          name: choices[3],
+                          color: Colors.blueAccent,
+                          correct: correct[3],
+                          nextQuestion: nextQuestion ?? const EndScreen(),
+
+                          //score: score + 1
+                        ),
                       ],
                     ),
                   ),
@@ -100,6 +124,9 @@ class _MapToListState extends State<MapToList> {
               children: [
                 Visibility(
                     visible: previous,
+                    maintainSize: true,
+                    maintainAnimation: true,
+                    maintainState: true,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).pop();
@@ -107,7 +134,21 @@ class _MapToListState extends State<MapToList> {
                       child: const Text('Previous'),
                     )),
                 Visibility(
+                    visible: home,
+                    maintainSize: true,
+                    maintainAnimation: true,
+                    maintainState: true,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.popUntil(context, (route) => route.isFirst);
+                      },
+                      child: const Text('home'),
+                    )),
+                Visibility(
                     visible: nextQuestion != null,
+                    maintainSize: true,
+                    maintainAnimation: true,
+                    maintainState: true,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
@@ -121,6 +162,32 @@ class _MapToListState extends State<MapToList> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget restart() {
+    return Scaffold(
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text(
+            'Your total score is ',
+            style: TextStyle(fontSize: 40),
+          ),
+          const Text(
+            'I can not do this',
+            style: TextStyle(fontSize: 40),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: ((context) => const FirstScreen())));
+            },
+            child: const Text('Restart'),
+          ),
+        ],
+      )),
     );
   }
 }
