@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vititpoom_widget">
+    <uses-permission android:name="android.permission.NFC" />
    <application
         android:label="vititpoom_widget"
         android:name="${applicationName}"
